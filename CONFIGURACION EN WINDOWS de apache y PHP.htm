@@ -1,0 +1,372 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0058)http://members.es.tripod.de/GoKuVaS/html/configuracion.htm -->
+<HTML><HEAD><TITLE>CONFIGURACION EN WINDOWS</TITLE><!--Begin JavaScript roadmap code.  If editing downloaded HTML source, delete
+ this portion.-->
+<SCRIPT language=JavaScript>
+
+<!--
+
+function TripodShowPopup() 
+{
+  // open the popup window
+  var popupURL = "/adm/popup/roadmap.shtml";
+    var popup = window.open(popupURL,"TripodPopup",'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,width=470,height=110');
+  // set the opener if it's not already set.  it's set automatically
+  // in netscape 3.0+ and ie 3.0+.
+  if( navigator.appName.substring(0,8) == "Netscape" ) {
+    popup.location = popupURL;
+	popup.focus();
+  }
+}
+
+TripodShowPopup();
+
+// -->
+
+</SCRIPT>
+<!--End inserted JavaScript code.-->
+<META content="text/html; charset=iso-8859-1" http-equiv=Content-Type>
+<STYLE>A {
+	COLOR: #000066; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #6699ff; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: #cc33ff; TEXT-DECORATION: none
+}
+</STYLE>
+
+<META content="MSHTML 5.00.2614.3500" name=GENERATOR></HEAD>
+<BODY bgColor=#d0dce0 leftMargin=0 topMargin=0 marginheight="0" marginwidth="0">
+<TABLE align=center border=4 borderColor=#666666 cellPadding=2 cellSpacing=0 
+width="80%">
+  <TBODY>
+  <TR>
+    <TD>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2><B>COMO 
+      INSTALAR Y CONFIGURAR APACHE, PHP, MYSQL Y PHPMYADMIN WINDOWS 95 ó 
+      98</B></FONT></P>
+      <P></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Esta 
+      página explica como instalar en Windows 95 o 98 el servidor web Apache 
+      (mejor que el IIS) el lenguaje para servidor PHP (mejor que el ASP) la 
+      base de datos MySQL y la interfaz web PHPMyAdmin (mejores para servidores 
+      que ODBC y Access). Estos programas funcionan mejor y de forma más estable 
+      en Linux, pero no suelen dar problemas en entorno Windows. </FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Estas 
+      instrucciones son para Win 95 y 98 (no valen para el NT y el 2000). En el 
+      caso de Windows NT y 2000 funcionando con IIS o con PWS suele haber 
+      instrucciones específicas en los archivos de instalación de los programas 
+      y por ello no trataremos ese tema. Los ejemplos que daremos son para 
+      instalar todo en el disco duro C: Si quieres instalarlo en otro disco 
+      tendrás que cambiar por tu cuenta algunos archivos de configuración. 
+      </FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Windows 
+      95 y 98 son sistemas poco seguros para montar un servidor conectado a 
+      Internet pero pueden servirnos para hacer pruebas localmente en nuestro 
+      ordenador antes de subir a un servidor los scripts de PHP y MySQL. Mucho 
+      mejor para montar un servidor conectado a Internet sería un sistema Linux 
+      o cualquier otro compatible Unix. Windows NT y Windows 2000 son en general 
+      menos recomendables que los servidores Unix. </FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>He 
+      intentado explicarlo todo clarito, de forma que hasta yo mismo lo entienda 
+      :-)<BR>A ver, empezamos paso a paso...</FONT></P>
+      <TABLE border=0 cellPadding=2 cellSpacing=3 width="100%">
+        <TBODY>
+        <TR>
+          <TD><B><FONT color=#000066 face="Arial, Helvetica, sans-serif" 
+            size=2><A 
+            href="http://members.es.tripod.de/GoKuVaS/html/configuracion.htm#1">APACHE</A></FONT></B></TD></TR>
+        <TR>
+          <TD><B><FONT color=#000066 face="Arial, Helvetica, sans-serif" 
+            size=2><A 
+            href="http://members.es.tripod.de/GoKuVaS/html/configuracion.htm#2">PHP4</A></FONT></B></TD></TR>
+        <TR>
+          <TD><B><FONT color=#000066 face="Arial, Helvetica, sans-serif" 
+            size=2><A 
+            href="http://members.es.tripod.de/GoKuVaS/html/configuracion.htm#3">MYSQL</A></FONT></B></TD></TR>
+        <TR>
+          <TD><B><FONT color=#000066 face="Arial, Helvetica, sans-serif" 
+            size=2><A 
+            href="http://members.es.tripod.de/GoKuVaS/html/configuracion.htm#4">PHPMYADMIN</A></FONT></B></TD></TR></TBODY></TABLE>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2><A 
+      name=1></A>1 - APACHE (Versión 1.3.12, para Windows)</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Bájate 
+      el Apache (servidor de páginas web) para Windows (3 MB) del directorio 
+      http://www.apache.org/dist/binaries/win32/ y después ejecuta el archivo en 
+      tu disco. Cuando te pregunte donde instalarlo no elijas el directorio que 
+      pone por defecto sino C:\Apache En el tipo de instalación elige 
+      "Typical".</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Después, 
+      solamente si tienes Windows 95, tendrás que actualizar el "Windows Socket" 
+      si no lo has hecho ya anteriormente. Puedes hacerlo bajándote las 
+      actualizaciones de la dirección 
+      http://www.microsoft.com/windows95/downloads/ en los apartados "Windows 
+      Socket Update - Kernel 32 " y "Windows Socket 2 Update". Windows 98 ya lo 
+      trae actualizado. </FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Ahora 
+      abre con un editor el archivo C:\Apache\conf\httpd.conf y añade esta línea 
+      (sin el simbolo # al principio de línea): </FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" 
+      size=2><BR>ServerName localhost</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>(O bien 
+      pon el nombre DNS de tu server en lugar de "localhost")<BR>Puedes editar a 
+      tu gusto la línea del "ServerAdmin" con tu E-Mail.</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Para 
+      arrancar el Apache usa el acceso directo que se crea en Menu de inicio 
+      -&gt; Programas -&gt; Apache Web server -&gt; Start Apache (No uses el 
+      acceso directo "Install Apache as a service" que es para Windows NT). Se 
+      abrirá una ventana de MS-DOS que pone en marcha el Apache, puedes 
+      minimizarla pero no la cierres pues dejará de funcionar.</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Si 
+      funciona, cuando pongas en el navegador http://localhost/ tiene que 
+      salirte una página de bienvenida (¡Funcionó! ¡El servidor de Red Apache ha 
+      sido instalado en ese sitio!...). Solo funcionará si has arrancado el 
+      Apache.</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Para 
+      apagar el Apache utiliza el acceso directo Menú de inicio -&gt; Programas 
+      -&gt; Apache Web server -&gt; Stop Apache. (No uses el acceso directo 
+      "Uninstall Apache service" que es para Windows NT).</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Si 
+      borras lo que hay en el directorio C:\Apache\htdocs y pones allí tu web 
+      entonces al poner http://localhost/ saldrá tu web (se abre el index.html) 
+      en lugar salir de la página de bienvenida de Apache. Esa web te servirá 
+      para hacer pruebas con scripts PHP y bases de datos estando desconectado 
+      de Internet para después subirla al server cuando funcione todo 
+      bien.</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Si estás 
+      conectado a Internet puedes usar el Apache como servidor web en la Red. Si 
+      por ejemplo al conectarte se te ha asignado la IP 888.888.888.8 Entonces a 
+      cualquiera que ponga en su navegador http://888.888.888.8 le saldrá tu 
+      web. Si tuvieses siempre la misma IP y conexión permanente con esto 
+      podrías montar tu propio servidor web gratuito.</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>En este 
+      momento apaga el Apache antes de continuar. De la configuración de Apache 
+      para PHP hablaremos luego.</FONT></P>
+      <P></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2><A 
+      name=2></A>2 - Ahora vamos con el PHP (Versión 4, para Windows)</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Tienes 
+      que bajarte el PHP para Windows desde la dirección 
+      http://es.php.net/downloads.php (Binaries for Win32). Te bajará un archivo 
+      en Zip (de unas 900) que tienes que descomprimirlo en un directorio 
+      temporal. </FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>De los 
+      archivos de ese directorio temporal copia los archivos php4ts.dll y 
+      Msvcrt.dll en el directorio C:\Windows\system\ (si Msvcrt.dll ya existe 
+      puedes dejar el antiguo). Después copia los archivos php.exe, 
+      php_calendar.dll, php_imap.dll y php_ldap.dll al directorio 
+      C:\Apache\cgi-bin\ Pon tambien una copia del archivo php4ts.dll en 
+      C:\Apache\cgi-bin\</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" 
+      size=2>Finalmente abre con un editor el archivo php.ini-dist y, si quieres 
+      que PHP soporte IMAP, LDAP y el control "calendar", entonces ve al al 
+      apartado "Windows Extensions" del achivo y pon las líneas siguientes 
+      (quita el símbolo ";" al inicio de línea para que pueda 
+      ejecutarse)</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" 
+      size=2>extension=php_calendar.dll<BR>extension=php_exif.dll<BR>extension=php_imap.dll<BR>extension=php_ldap.dll<BR>extension=php_zlib.dll 
+      </FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Si 
+      entiendes del tema y quieres cambiar alguna otra opción de configuración 
+      de PHP hazlo en este momento. Después tienes que guardar el archivo 
+      php.ini.dist con el nombre php.ini en el directorio C:\Windows\</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Ahora 
+      tienes que configurar Apache para que pueda usar PHP. Para ello abre con 
+      un editor el archivo C:\Apache\conf\httpd.conf y modifica estas 
+      líneas:</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" 
+      size=2>Sustituye la línea: DirectoryIndex index.html<BR>Por la línea: 
+      DirectoryIndex index.html index.php index.php3</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" 
+      size=2><BR>Añade luego estas líneas (sin el simbolo # al principio de 
+      línea):<BR>ScriptAlias /cgi-bin/ "c:/apache/cgi-bin/"<BR>AddType 
+      application/x-httpd-php3 .php3<BR>AddType application/x-httpd-php3-source 
+      .phps<BR>AddType application/x-httpd-php .php .php4<BR>AddType 
+      application/x-httpd-php-source .phps<BR>AddHandler cgi-script 
+      .cgi<BR>AddHandler php3-script .php3 <BR>AddHandler php-script .php 
+      .php4<BR>Action php3-script /cgi-bin/php.exe<BR>Action php-script 
+      /cgi-bin/php.exe </FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Si 
+      quieres que PHP tambien busque código en páginas con extensión .html ó 
+      .htm (además de buscar código en las páginas con extensiones .php .php3 y 
+      .php4) tienes que añadir también esta línea en el 
+      httpd.conf:<BR>AddHandler php-script .html .htm</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Para ver 
+      si te funciona el PHP con Apache crea un archivo con cualquier editor 
+      texto que contenga solamente la siguiente línea:</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>&lt;? 
+      phpinfo(); ?&gt;</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Si usas 
+      Frontpage es mejor que escribas las "tags" de la siguiente forma, si no 
+      quieres que el Frontpage eche a perder el código (...que 
+      horror...):</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" 
+      size=2>&lt;script language=php&gt; phpinfo(); &lt;/script&gt;</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Guarda 
+      el archivo con el nombre info.php y lo colocas en C:\Apache\htdocs\ 
+      después arrancas el Apache (si todavía no lo tenías encendido). Arrancas 
+      el navegador sin conectarte a Internet (Trabajar sin conexión) y abres la 
+      siguiente dirección: http://localhost/info.php Si te pregunta si te 
+      quieres conectar pulsa "conectar" y se conectará a tu "localhost" (abajo a 
+      la derecha del Internet Explorer verás que está activa la Intranet Local) 
+      y ... ¡Sorpresa! ¿A que no te esperabas que saliesen tantas cosas para un 
+      archivo que solo tiene una línea de código?. Si no te sale nada es que no 
+      has hecho bien alguno de los pasos anteriores.</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Cuando 
+      abras tu web en "localhost", si hay en las páginas imágenes externas a tu 
+      web, el navegador intentará conectarse a Internet para cargarlas. Si le 
+      dices "trabajar sin conexión" se cargará la página sin las imágenes (o las 
+      cargará del buffer). Para abrir otra página de tu web al hacer click en 
+      cualquier enlace el navegador reintentará conectarse al 
+      "localhost".</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Para que 
+      puedas ver tu web de Metropoli2000 en "localhost" sin que salga error por 
+      los banners de publicidad puedes crear el directorio (carpeta) siguiente 
+      C:\www\scripts-usuarios\publicidad y dentro de este directorio un archivo 
+      que se llame publicidad.php que no contenga nada (en blanco), o que 
+      contenga lo que tu quieras para poner un pseudo-banner. De esta forma no 
+      te darán error las páginas con banners de Metropoli2000.</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>PHP 
+      versión 4 es bastante más rápido en ejecutar el código que PHP versión 3. 
+      Pero si quieres que aún vaya más rápido puedes añadir el Optimizador Zend 
+      (es gratuito). Para ello puedes bajartelo de la web http://www.zend.com 
+      (Download Zend optimizer). Te pedirá tu E-Mail y un nombre de usuario. 
+      Recibirás una clave por E-Mail para poder entrar al área de descarga. 
+      Desde allí bájate la versión para Windows 95, 98 y NT. Descomprime el 
+      archivo a una carpeta temporal.</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Copia el 
+      el archivo ZendOptimizer.dll de la carpeta temporal al directorio 
+      C:\Apache\zend\ Luego tienes que abrir con un editor el archivo 
+      C:\Windows\php.ini y añadirle las dos líneas (sin meter espacios ni 
+      tabuladores) que se especifican en el archivo FAQ.txt de la distribución 
+      de Zend, teniendo en cuenta donde has puesto el ZendOptimizer.dll 
+      </FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Por 
+      ejemplo, para la actual distribución de Zend sería:</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" 
+      size=2>zend_optimizer.optimization_level=15<BR>zend_extension_ts="C:\Apache\zend\ZendOptimizer.dll"</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Para 
+      saber si funciona el Optimizador Zend abre el archivo que creaste antes en 
+      http://localhost/info.php y mira el apartado relativo al motor Zend. Si 
+      funciona el optimizador tiene que aparecer la frase siguiente: "This 
+      program makes use of the Zend scripting language engine: Zend Engine v1.0, 
+      Copyright (c) 1998-2000 Zend Technologies Ltd. with Zend Optimizer 
+      ...etc...</FONT></P>
+      <P></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2><A 
+      name=3></A>3 - Y ahora el MySQL</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Bájate 
+      la versión de MySQL para Windows 95/98 de la dirección 
+      http://www.mysql.com . La última versión al revisar este tutorial es la 
+      3.23 que puedes encontrar en la página 
+      http://www.mysql.com/downloads/mysql-3.23.html La última versión está en 
+      el apartado "Standard binary (tarball) distributions - for Windows 
+      95/NT".</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Extrae 
+      el contenido del archivo binario que te has bajado a una carpeta temporal 
+      cualquiera y allí ejecuta el setup.exe Cuando el instalador pregunte 
+      directorio para la instalación elige el C:\mysql y haz la instalación 
+      "Typical"</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Para 
+      arrancar el MySQL tienes que crear un acceso directo en el escritorio o en 
+      el Menú de Inicio. Al acceso directo puedes llamarle "Arrancar MySQL". El 
+      acceso directo tiene que tener los siguientes parámetros<BR>Destino: 
+      C:\mysql\bin\mysqld-shareware.exe --skip-grant-tables<BR>Iniciar en: 
+      C:\mysql\bin</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Luego 
+      haces click en el acceso directo "Arrancar MySQL" para arrancar el 
+      programa. MySQL se queda invisible (a diferencia de Apache que quedaba una 
+      ventana de MS-DOS). Esta configuración de arranque con la opción 
+      "skip-grant-tables" hace que MySQL acepte cualquier usuario y clave. Lo te 
+      ahorra tener que crear usuarios y claves para MySQL en tu equipo (tarea 
+      compleja). Desde luego eso no debe hacerse en un servidor de Internet 
+      porque si no podría entrar cualquiera en las bases de datos, 
+      evidentemente.</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Para 
+      apagar MySQL tienes que crear otro acceso directo al que puedes llamar 
+      "Apagar MySQL" con los siguientes parámetros<BR>Destino: 
+      C:\mysql\bin\mysqladmin.exe shutdown<BR>Iniciar en: 
+C:\mysql\bin</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Para 
+      apagar MySQL tienes que hacer click en el acceso directo "Apagar MySQL". 
+      Cuando no sabes si tienes encendido el MySQL puedes hacer CTRL-ALT-DEL 
+      (una vez) y ver que en la lista de tareas está el mysqld-shareware. Pulsa 
+      Cancelar y no se te ocurra volver a pulsar CTRL-ALT-DEL si no quieres 
+      reiniciar de forma forzada tu máquina.</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Ya sabes 
+      como encender y apagar MySQL, pero si no estas habituado a utilizarlo es 
+      mejor que instales un interfaz que te ayude a manejarlo. para esto es el 
+      PHPMyAdmin.</FONT></P>
+      <P></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2><A 
+      name=4></A>4 - Instalar el phpMyAdmin</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Primero 
+      bájate el archivo myadmin.zip que contiene los scripts de phpMyAdmin de la 
+      dirección http://phpwizard.net/phpMyAdmin/ tienes que extraerlo al 
+      directorio C:\Apache\htdocs\ con lo que se creará el directorio 
+      C:\Apache\htdocs\phpMyAdmin\</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Para 
+      utilizar la versión española de phpMyAdmin solo tienes que editar el 
+      archivo C:\Apache\htdocs\phpMyAdmin\config.inc.php3 y sustituir la 
+      línea:</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" 
+      size=2>require("english.inc.php3");</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Por la 
+      línea siguiente:</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" 
+      size=2>require("spanish.inc.php3"); </FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Si 
+      prefieres utilizar una traducción al español para el phpMyAdmin mejor que 
+      la que trae el programa original, puedes usar nuestro archivo 
+      "spanish.inc.php3" que puedes bajarte comprimido en formato zip haciendo 
+      click aquí. Descomprime el archivo en un directorio temporal. Después pon 
+      el fichero resultante spanish.inc.php3 en el directorio 
+      C:\Apache\htdocs\phpMyAdmin\</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Si vas a 
+      trabajar en tu "localhost" para poner en marcha el phpMyAdmin solo tienes 
+      que arrancar el Apache y luego arrancar el MySQL y después abrir con el 
+      navegador la dirección http://localhost/phpMyAdmin/ Desde allí puedes 
+      crear una base de datos y sus tablas y administrarlas. Esto solo 
+      funcionará si has usado la opción --skip-grant-tables al arrancar 
+      MySQL.</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Si tu 
+      MySQL es de uso público entonces no debes usar la opción 
+      --skip-grant-tables y debes configurar MySQL (según las instrucciones del 
+      manual) para utilizar usuarios y claves. Después tienes que abrir con un 
+      editor el archivo C:\Apache\htdocs\phpMyAdmin\config.inc.php3 y cambiar 
+      los valores del host, puerto, usuario y clave según los que utilizaste al 
+      configurar MySQL.</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>En el 
+      caso de que tengas una base de datos en Metropoli2000 y desde tu 
+      phpMyAdmin quieras administrar también esa base de datos, tienes que abrir 
+      con un editor el archivo config.inc.php3 y sustituir 'hostdemetropoli' por 
+      el servidor que te digan los administradores, 'usuariodemetropoli' por tu 
+      nombre de usuario y 'clavedemetropoli' por tu clave. Al iniciar tu 
+      phpMyAdmin puedes elegir en la primera pantalla entre trabajar en 
+      localhost, sin conexión a Internet (por defecto), o trabajar con la base 
+      de datos de Metropoli2000 (tienes que estar conectado a Internet). Cuando 
+      subas tus páginas al servidor de Metropoli2000 tienes que acordarte 
+      también de crear en el servidor las mismas tablas que has creado en el 
+      "localhost" (puedes hacer un volcado de la estructura y datos y luego 
+      "ejecutarlo como SQL" en el servidor de Metropoli2000).</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Ahora 
+      solo falta, si no lo has hecho ya, que practiques un poco de PHP y MySQL 
+      para poder crear páginas web con formularios que introduzcan los datos en 
+      tus bases de datos y crear páginas que muestren las tablas y hagan 
+      búsquedas. En la dirección http://es.php.net tienes enlaces a sitios de 
+      interés con scripts de ejemplo que utilizan PHP y MySQL..</FONT></P>
+      <P><FONT color=#000066 face="Arial, Helvetica, sans-serif" size=2>Si 
+      quieres utilizar MS-Access para administrar la base de datos MySQL de tu 
+      servidor o tu "localhost" y tienes instalado en Windows el origen de datos 
+      ODBC (opcional al instalar Access) puedes instalar entonces el driver 
+      MyODBC (y configurarlo para tu base de datos MySQL). De esa forma podrás 
+      trabajar con las tablas de datos MySQL del servidor como tablas vinculadas 
+      de Access mediante ODBC. Puedes bajarte MyODBC de www.mysql.com pulsando 
+      aquí elige la opción "for Windows95/98 (full setup)". Tambien puedes 
+      utilizar las aplicaciones MyAccess 97 ó MyAccess 2000 que puedes encontrar 
+      en la dirección de contribuciones a MySQL en 
+      http://www.mysql.com/downloads/contrib.html en el apartado "Using MySQL 
+      with other products".</FONT></P>
+      <P>&nbsp;</P></TD></TR></TBODY></TABLE></BODY></HTML>
